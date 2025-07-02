@@ -1,0 +1,1 @@
+# swa-tag-manager-documentation
