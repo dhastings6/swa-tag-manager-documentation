@@ -59,22 +59,8 @@ try {
 
 ## **📋 Implementation Guide**
 
-### **Method 1: Direct Array Push (Current Standard)**
-```javascript
-try {
-    // Your custom code logic here
-    var data = someComplexOperation();
-    console.log('Operation successful:', data);
-    
-} catch (error) {
-    // Error tracking implementation
-    var ruleName = event.$rule.name,
-        JSerror = error.message;
-    window.failedCode.push(`${ruleName} : ${JSerror}`);
-}
-```
 
-### **Method 2: Using FailedCodePush Function (Recommended)**
+### **Method 1: Using FailedCodePush Function (Recommended)**
 ```javascript
 try {
     // Your custom code logic here
@@ -87,7 +73,7 @@ try {
 }
 ```
 
-### **Method 3: Component-Specific Error Tracking**
+### **Method 2: Component-Specific Error Tracking**
 ```javascript
 try {
     // Component A logic
@@ -106,7 +92,7 @@ try {
 }
 ```
 
-### **Method 4: Multiple Try-Catch Blocks**
+### **Method 3: Multiple Try-Catch Blocks**
 ```javascript
 // Global rule context
 var ruleName = event.$rule.name;
@@ -127,6 +113,20 @@ try {
 } catch (error) {
     s.products = "product data unavailable";
     window.failedCode.push(`${ruleName}_productData : ${error.message}`);
+}
+```
+### **Method 4: Direct Array Push**
+```javascript
+try {
+    // Your custom code logic here
+    var data = someComplexOperation();
+    console.log('Operation successful:', data);
+    
+} catch (error) {
+    // Error tracking implementation
+    var ruleName = event.$rule.name,
+        JSerror = error.message;
+    window.failedCode.push(`${ruleName} : ${JSerror}`);
 }
 ```
 
