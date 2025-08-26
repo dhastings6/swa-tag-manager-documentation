@@ -5,25 +5,15 @@ This guide summarizes the structural and schema changes between the current data
 ### High-level summary
 - Restructured to `product` array and introduced an `attributes` object per product.
 - Payment info moved from top-level `paymentinfo` to `transaction.payments` with multi-method support and numeric amounts.
-- Customer membership fields moved into a nested `customer.member` object; new `customer.profile` object added.
-- A new `transaction` object captures confirmation identifiers, loyalty points, payments, and pricing summary.
-- Several fields switch from string to number and new boolean fields are introduced.
+- A new `customer.profile` object added into `customer` object.
+- A new `transaction` object captures product confirmation identifiers, loyalty points, payments, and pricing summary. Naming convention tried to align with react props on page.
+- Several existing fields switch from string to number and new boolean fields are introduced.
 
 ---
 
 ### Changes by category
 
-#### Renamed (often also moved)
-- `customer.membernumber` → `customer.member.number`
-- `customer.membertierstatus` → `customer.member.tier`
-- `customer.memberpointbalance` → `customer.member.pointBalance` (camelCase)
-- For room products: `roomtype` value is now carried in `products[].productcode`
-
 #### Moved
-- Customer membership fields moved under `customer.member`:
-  - `customer.membernumber` → `customer.member.number`
-  - `customer.membertierstatus` → `customer.member.tier`
-  - `customer.memberpointbalance` → `customer.member.pointBalance`
 - Payment information moved and expanded:
   - `paymentinfo.*` → `transaction.payments.*` (multi-method, currency, split flags, amounts numeric)
 - Product-specific details moved under `products[].attributes`:
@@ -31,8 +21,8 @@ This guide summarizes the structural and schema changes between the current data
   - Room: `numberofbeds`, `bedtype` → `products[].attributes.beds[]` (typed bed list)
 
 #### Data type changes
-- `products[].productprice`: string (e.g., "1168.65") → number (e.g., 0)
-- `customer.memberpointbalance` (string) → `customer.member.pointBalance` (number)
+- `product[].productprice`: string (e.g., "1168.65") → number (e.g., 0)
+- `customer.memberpointbalance` (string) → `customer.member.pointbalance` (number)
 - Payments: amounts are numbers; new boolean `transaction.payments.splitevenly`
 - Pricing summary values are numbers (`packagetotal`, taxes, etc.)
 
