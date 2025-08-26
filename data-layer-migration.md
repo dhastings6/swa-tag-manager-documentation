@@ -3,7 +3,7 @@
 This guide summarizes the structural and schema changes between the current data layer (`old.js`) and the proposed target schema (`new.js`). It highlights what changed, what moved, what was deleted, and introduces a data dictionary for all net-new properties.
 
 ### High-level summary
-- The top-level `product` array is renamed and restructured to `products`, introducing an `attributes` object per product.
+- Restructured to `product` array and introduced an `attributes` object per product.
 - Payment info moved from top-level `paymentinfo` to `transaction.payments` with multi-method support and numeric amounts.
 - Customer membership fields moved into a nested `customer.member` object; new `customer.profile` object added.
 - A new `transaction` object captures confirmation identifiers, loyalty points, payments, and pricing summary.
@@ -14,7 +14,6 @@ This guide summarizes the structural and schema changes between the current data
 ### Changes by category
 
 #### Renamed (often also moved)
-- `product` → `products` (array name)
 - `customer.membernumber` → `customer.member.number`
 - `customer.membertierstatus` → `customer.member.tier`
 - `customer.memberpointbalance` → `customer.member.pointBalance` (camelCase)
