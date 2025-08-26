@@ -81,10 +81,10 @@ The following properties are net new and not currently in the event object being
 | transaction.pricingsummary.postpay | array<object> | Postpay obligations by type. | [{ type: "hotel", amount: 16875 }] |
 | transaction.pricingsummary.postpay[].type | string | Category for postpay amount. | "taxes" |
 | transaction.pricingsummary.postpay[].amount | number | Amount due post-purchase. | 250 |
-| product[].attributes | object | Per-product metadata. | { upsell, switchsell } |
+| product[].attributes | object | Per-product metadata. upsell only for non-addon products | { upsell, switchsell } |
 | product[].attributes.upsell | number | Upsell amount/value (unit TBD). | 100 |
 | product[].attributes.switchsell | boolean | Car switch-sell flag. | true |
-| product[].attributes.state | string | Add-on state/region when applicable. | "Texas" |
+| product[].attributes.state | string | Add-on state/region for insurance only. | "Texas" |
 | product[].attributes.name | string | Human-readable add-on name. | "Travel Insurance" |
 | product[].attributes.bounds | number | Add-on bounds or quantity (context-specific). | 2 |
 
