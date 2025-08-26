@@ -1,12 +1,12 @@
-## Data Layer Migration Guide: old.js → new.js (revised)
+## Confirmation Page Data Layer Enhancement
 
-This guide reflects the latest `new.js` provided. It summarizes structural/schema changes from `old.js`, highlights renamed/moved/type-changed/deleted items, lists net-new properties with a data dictionary, and flags inconsistencies to resolve before rollout.
+
 
 ### High-level summary
 - The products collection remains named `product` (no rename). Each item may include an `attributes` object for per-product metadata (e.g., `upsell`, `switchsell`).
 - A new `transaction` object captures confirmation identifiers, loyalty points, payments, and pricing summary.
 - Payment info moved from top-level `paymentinfo` to `transaction.payments` with multi-method support and numeric amounts.
-- `customer.profile` (first/last name, email, phone) is newly introduced.
+- `customer.profile` object (first/last name, email, phone) is newly introduced.
 - Several fields switch from string to number (e.g., product prices, payment amounts), and new boolean fields are present.
 - Customer membership fields remain flat within `customer` (no nested `customer.member`).
 
